@@ -1,35 +1,24 @@
-
-// receive two inputs
-// total & amount given
-// the numbers will be represented in cents $10 will  = 1000
-//
-
 var calculateChange = function(total, cash) {
   // create an object to pass new key value pairs into
   var change = {};
   // evaluate the amount of change
-  var cashReturn = cash - total;
+  const cashReturn = cash - total;
   //create an if statement that loops through our number that adds new Key value pairs to our object
-  var cashInString = cashReturn.toString(10); // is this correct ??? the radix
-  var length = cashInString.length;
-  var cashInArray = cashInString.split("");
+  // var cashInString = cashReturn.toString(10); // is this correct ??? the radix
+  // var length = cashInString.length;
+  // var cashInArray = cashInString.split("");
 
+ var addChangeToObject = function(){
+    var totalLeft = 0 ;
+      if( (cashReturn / 2000) > 1 ) {
+         howMany = Math.floor(cashReturn / 2000);
+         change['Twenty dollars'[howMany]];
+         totalLeft += cashReturn - howMany;
+         console.log(totalLeft); // I'm getting some weird error with totalLeft
+      }
+    }
 
-
-  // var Twenties =
-
-
-
-  // var addChangeToObject = function(){
-
-    // if (length === 4 && ){
-      let howMany = Math.floor(cashInArray[0] / 2);
-      // change['Twenty dollars'][howMany];
-console.log(howMany);
-
-    // }
-
-    // }
+addChangeToObject();
 
     // think about calculating the amount of each change like
     //  5000
@@ -55,15 +44,10 @@ console.log(howMany);
   // change[ "Nickel 5¢")][insert how many here :-)];
   // change[ "Penny 1¢"][insert how many here :-)];
 
-
-
-
-// the object should only include what is to be returned
-//return an object describing the total amount of change
-
-// // c
 };
-
+// console.log(calculateChange(1000, 7000));
+// console.log(calculateChange(2623, 5700));
+// console.log(calculateChange(501, 4000));
 console.log(calculateChange(1787, 2000));
 console.log(calculateChange(2623, 4000));
 console.log(calculateChange(501, 1000));

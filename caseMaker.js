@@ -1,7 +1,10 @@
+// I should come back to this and use a for loop rather than a forEach()
 
 var camelCase = function(input) {
   var newStringAsArray = input.split(' ');
+
   var newString = "";
+
   function capitalizeWords(word){
    return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
   }
@@ -13,7 +16,7 @@ var camelCase = function(input) {
           newString += capitalizeWords(item);
         }
     });
-    console.log(newString);
+    return newString;
 };
 
 console.log(camelCase("this is a string"));
