@@ -3,6 +3,7 @@ function squareCode(originalPhrase){
   if(originalPhrase.length > 81){
     return "Your string is longer than 81 characters. Please input a shorter phrase."
   }
+
 }
 
 In your program, have the user enter a message in english with no spaces between

@@ -8,17 +8,17 @@ var makeCase = function(string, type) {
     var string = string;
 
 
-  function snakeWords(originalString) {
-    var newString = "";
-    for (var i = 0; i < originalString.length; i++) {
-      if(originalString[i] === " ") {
-        newString += "_";
-      } else {
-        newString += originalString[i];
-      }
-    }
-    return newString ;
-  }
+  // function snakeWords(originalString) { // have a look at replace() https://www.w3schools.com/jsref/jsref_replace.asp ALSO .split() .join()
+  //   var newString = "";
+  //   for (var i = 0; i < originalString.length; i++) {
+  //     if(originalString[i] === " ") {
+  //       newString += "_";
+  //     } else {
+  //       newString += originalString[i];
+  //     }
+  //   }
+  //   return newString ;
+  // }
 
   function kebabWords(originalString) {
     var newString = "";

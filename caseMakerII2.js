@@ -1,3 +1,5 @@
+// if I was to refactor this I could put each function into a larger switch statement
+// what about putting a loop on type ?? so that the
 var makeCase = function(string, type) {
 
   var newStringAsArray = string.split(' ');
@@ -5,32 +7,15 @@ var makeCase = function(string, type) {
   var type = type.toString();
   var string = string;
 
-
-  function snakeWords(originalString) { // have a look at replace() https://www.w3schools.com/jsref/jsref_replace.asp ALSO .split() .join()
-    var newString = "";
-    for (var i = 0; i < originalString.length; i++) {
-      if(originalString[i] === " ") {
-        newString += "_";
-      } else {
-        newString += originalString[i];
-      }
-    }
-    return newString ;
+  function snakeWords(originalString) {
+    newString += originalString.replace(/ /g, "_");
+    return newString;
   }
 
-  function kebabWords(originalString) { // have a look at replace() https://www.w3schools.com/jsref/jsref_replace.asp ALSO .split() .join()
-    var newString = "";
-    for (var i = 0; i < originalString.length; i++) {
-      if(originalString[i] === " ") {
-        newString += "-";
-      } else {
-        newString += originalString[i];
-      }
-    }
-    return newString ;
+  function kebabWords(originalString) {
+    newString += originalString.replace(/ /g, "-");
+    return newString;
   }
-
-  // below are the functions that manipulate the words.
 
   function capitalizeWords(word){
    return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
@@ -40,6 +25,7 @@ var makeCase = function(string, type) {
     input.forEach(function(item){
       newString += capitalizeWords(item);
     });
+    return newString;
   }
 
   function camelCase(input) {
@@ -50,6 +36,7 @@ var makeCase = function(string, type) {
             newString += capitalizeWords(item);
           }
       });
+      return newString;
   }
 
     function titleCase(input) {
@@ -60,7 +47,7 @@ var makeCase = function(string, type) {
             newString += capitalizeWords(item) + " ";
           }
       });
-        return newString;
+      return newString;
     }
 
     function capitalizeVowels(input){
