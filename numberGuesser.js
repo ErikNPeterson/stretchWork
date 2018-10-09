@@ -9,7 +9,7 @@ function getRandomNumberInclusive() {
 
 var numberOfGuesses = 0;
 var randomNumber = getRandomNumberInclusive();
-
+var answer = "";
 
 function isItTheRightNumber(userinput, magicNumber) {
   if(isNaN(userinput)){ // NaN is a falsey value so we have to use the isNaN function to get a true response
@@ -22,11 +22,8 @@ function isItTheRightNumber(userinput, magicNumber) {
       return "Sorry! That number is too low";
     } else if (userinput === magicNumber){
       return "Well you finally got it! After " + numberOfGuesses + " tries!";
-
     }
 }
-
-var answer = "";
 
 while (answer !== randomNumber){
   answer = prompt("Please guess the magic number!");
@@ -34,8 +31,3 @@ while (answer !== randomNumber){
   answer = Number(answer);
   console.log(isItTheRightNumber(answer, randomNumber));
 }
-
-
-
-
-
