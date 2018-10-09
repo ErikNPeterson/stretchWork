@@ -4,9 +4,9 @@ var newString = "";
 
 var newStringAsArray = string.split(' ');
 
-// function capitalizeWords(word){
-//  return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
-// }
+function capitalizeWords(word){
+ return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+}
 
 // function capitalizeConsonants(input){
 //      input.replace(/[bcdfghjklmnpqrstvwxyz]/ig, function (char) // ig = case insensitive
@@ -15,14 +15,15 @@ var newStringAsArray = string.split(' ');
 //       });
 //      return newString;
 //     }
+    function capitalizeConsonants(input){
+     for (var i = 0; i < input.length; i++){
+       if ((input[i].toLowerCase() === "a") || (input[i].toLowerCase() === "e") || (input[i].toLowerCase() === "i") || (input[i].toLowerCase() === "o") || (input[i].toLowerCase() === "u")) {
+        newString += input[i]
+        } else {
+        newString += capitalizeWords(input[i]);
+        }
+      }
+      return newString;
+  }
 
-function upperCase(string){
-  return string.toUpperCase();
-}
-
-function lowerCase(string){
-  return string.toLowerCase();
-}
-
-
-console.log(upperCase(string), lowerCase(string));
+console.log(capitalizeConsonants(string));

@@ -1,14 +1,12 @@
-// I can try making two differnt if statements to determine the precedence??
-
 var makeCase = function(string, type) {
 
-    var newStringAsArray = string.split(' ');
-    var newString = "";
-    var type = type.toString();
-    var string = string;
+  var newStringAsArray = string.split(' ');
+  var newString = "";
+  var type = type.toString();
+  var string = string;
 
 
-  function snakeWords(originalString) {
+  function snakeWords(originalString) { // have a look at replace() https://www.w3schools.com/jsref/jsref_replace.asp ALSO .split() .join()
     var newString = "";
     for (var i = 0; i < originalString.length; i++) {
       if(originalString[i] === " ") {
@@ -20,7 +18,7 @@ var makeCase = function(string, type) {
     return newString ;
   }
 
-  function kebabWords(originalString) {
+  function kebabWords(originalString) { // have a look at replace() https://www.w3schools.com/jsref/jsref_replace.asp ALSO .split() .join()
     var newString = "";
     for (var i = 0; i < originalString.length; i++) {
       if(originalString[i] === " ") {
@@ -41,7 +39,8 @@ var makeCase = function(string, type) {
   function pascalCase(input) {
     input.forEach(function(item){
       newString += capitalizeWords(item);
-  });
+    });
+  }
 
   function camelCase(input) {
         input.forEach(function(item, index){
@@ -51,8 +50,9 @@ var makeCase = function(string, type) {
             newString += capitalizeWords(item);
           }
       });
+  }
 
-  function titleCase(input) {
+    function titleCase(input) {
         input.forEach(function(item, index){
           if(index === input.length - 1) {
             newString += capitalizeWords(item);
@@ -72,7 +72,7 @@ var makeCase = function(string, type) {
         }
       }
       return newString;
-  }
+    }
 
     function capitalizeConsonants(input){
      for (var i = 0; i < input.length; i++){
@@ -83,7 +83,7 @@ var makeCase = function(string, type) {
         }
       }
       return newString;
-  }
+    }
 
   function upperCase(string){
     newString += string.toUpperCase();
@@ -94,40 +94,30 @@ var makeCase = function(string, type) {
     newString += string.toLowerCase();
     return newString;
   }
-function whichType(){
-      if (type === "camel") {
-        camelCase(newStringAsArray);
-      }
-      if (type === "pascal") {
-        pascalCase(newStringAsArray);
-      }
-      if (type === "snake"){
-        snakeWords(string);
-      }
-      if (type === "kebab"){
-        kebabWords(string);
-      }
-      if (type === "title"){
-        titleCase(newStringAsArray);
-      }
-      if (type === "vowel"){
-        capitalizeVowels(string);
-      }
-      if (type === "consonant"){
-        capitalizeConsonants(string);
-      }
-      if (type === "upper"){
-        upperCase(string);
-      }
-      if (type === "lower"){
-        lowerCase(string);
-      }
-      console.log(newString);
+
+    switch (type) {
+      case "camel":
+         return camelCase(newStringAsArray);
+      case "pascal":
+         return pascalCase(newStringAsArray);
+      case "snake":
+          return snakeWords(string);
+      case "kebab":
+        return kebabWords(string);
+      case "title":
+        return titleCase(newStringAsArray);
+      case "vowel":
+        return capitalizeVowels(string);
+      case "consonant":
+        return capitalizeConsonants(string);
+      case "upper":
+        return capitalizeConsonants(string);
+      case "lower":
+        return lowerCase(string);
+      default:
+         console.log('not type matched');
     }
-    whichType();
-  }
-}
-// console.log(newString);
+
 }
 
 
@@ -139,6 +129,3 @@ console.log(makeCase("this is a string", "title"));
 console.log(makeCase("this is a string", "vowel"));
 console.log(makeCase("this is a string", "consonant"));
 console.log(makeCase("this is a string", ["upper", "snake"]));
-
-
-
