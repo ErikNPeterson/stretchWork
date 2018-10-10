@@ -2,7 +2,7 @@
 
 function squareCode(originalPhrase){
   if(originalPhrase.length > 81){
-    return "Your string is longer than 81 characters. Please input a shorter phrase."
+    return console.log("Your string is longer than 81 characters. Please input a shorter phrase.");
   }
   var inputStringAsArray = originalPhrase.split("");
 // take the originalPhrase and find the square root or closest thing to it and that will be your first string length
@@ -27,14 +27,13 @@ function squareCode(originalPhrase){
 
   var secondNewArray = [];
   var secondNewElement = "";
- // here we need to run through the array
- // first letter in each string of ourNewArray; then second; third etc...
- //[ 'mynam', 'eisas', 'tring', 'andIa', 'm5jkl', 'fds' ]
 
+// this loops through ourNewArray first pushing each character of the item[0] to a new element within secondNewArray
+// then the second if statment loops through the following characters of each elements sending them to the correct element in the new array
   ourNewArray.forEach(function(item, index){
     if (index === 0){
-    for (var i = 0; i < item.length; i++) { // 'mynam'
-        secondNewArray.push(item[i]); // after this is done we should have an array of 5 separate characters secondNewArray = [m,y,n,a,m];
+    for (var i = 0; i < item.length; i++) {
+        secondNewArray.push(item[i]);
       }
     }
     if (index > 0){
@@ -44,13 +43,9 @@ function squareCode(originalPhrase){
       }
     })
 
-    // now we need to loop through the second element
-    //sending the letter += to the secondNewArray[0]+=
-    return console.log(secondNewArray);
+  var codeIntoString = secondNewArray.toString();
+  var finalCode = codeIntoString.replace(/,/g," ");
+  return console.log(finalCode);
 }
-// now we have to loop through our new array creating another new array
-// when we loop through each array
-// add  to new secondNewArray[0][0] += first array[i][1]
 
-
-squareCode("chillout");
+squareCode("blahblahblahhjkfdhajklfdhajkfdsahjkfdsahjfkdsahfjkdsahjfkdsahjkfd");
