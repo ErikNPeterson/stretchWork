@@ -2,9 +2,8 @@
 
 var makeCase = function(string, type) {
 
-  var newStringAsArray = string.split(' ');
   var newString = "";
-  var type = type.toString();
+  var type = type.toString(); // this allows us to grab the length
   var string = string;
 
   function snakeWords(originalString) {
@@ -22,13 +21,15 @@ var makeCase = function(string, type) {
   }
 
   function pascalCase(input) {
-    input.forEach(function(item){
-      newString += capitalizeWords(item);
+    var input = input.split(' ');
+      input.forEach(function(item){
+        newString += capitalizeWords(item);
     });
     return newString;
   }
 
   function camelCase(input) {
+    var input = input.split(' ');
         input.forEach(function(item, index){
           if(index === 0) {
             newString += item;
@@ -40,6 +41,7 @@ var makeCase = function(string, type) {
   }
 
     function titleCase(input) {
+      var input = input.split(' ');
         input.forEach(function(item, index){
           if(index === input.length - 1) {
             newString += capitalizeWords(item);
@@ -82,73 +84,73 @@ var makeCase = function(string, type) {
     return newString;
   }
 
-// console.log(Array.isArray(type) === true)  this works
-  if (Array.isArray(type) === true){ // evaluate if there is a array
-    type.forEach(function(item, index){ // send each of the strings
-      type = item; // found a way to evaluate the array and loop them
-      // need to find a way to run the first item
-      // update string/ or newStringAsArray
-      // run it the following times passing in the new String or newStringAsArray
-          switch (type) {
-      case "camel":
-         newStringAsArray += camelCase(newStringAsArray);
-      case "pascal":
-         newStringAsArray += pascalCase(newStringAsArray);
-      case "snake":
-          string += snakeWords(string);
-      case "kebab":
-         string += kebabWords(string);
-      case "title":
-        newStringAsArray += titleCase(newStringAsArray);
-      case "vowel":
-        string += capitalizeVowels(string);
-      case "consonant":
-        string += capitalizeConsonants(string);
-      case "upper":
-        string += capitalizeConsonants(string);
-      case "lower":
-        string += lowerCase(string);
-      default:
-         console.log('not type matched');
+  if (Array.isArray(type.split(",")) === true) {
+    type.split(",").forEach(function(item, index){
+      console.log(item);
+      // send each of the strings
+      if (index === 0){
+        } else {
+        var string = newString;
       }
-      // we need to find someway to set the
-
+            switch (item) { // our strings are undefined
+        case "camel":
+           newString += camelCase(string);
+        case "pascal":
+           newString += pascalCase(string);
+        case "snake":
+            newString += snakeWords(string);
+        case "kebab":
+           newString += kebabWords(string);
+        case "title":
+          newString += titleCase(string);
+        case "vowel":
+          newString += capitalizeVowels(string);
+        case "consonant":
+          newString += capitalizeConsonants(string);
+        case "upper":
+          newString += upperCase(string);
+        case "lower":
+          newString += lowerCase(string);
+        default:
+           console.log('not type matched');
+      }
     })
   }
+
   // if there's an array we will need to run through our
   //switch case twice and then print it our after.
-  // //
+
   //   switch (type) {
   //     case "camel":
-  //        return camelCase(newStringAsArray);
+  //        return camelCase(string);
   //     case "pascal":
-  //        return pascalCase(newStringAsArray);
+  //        return pascalCase(string);
   //     case "snake":
   //         return snakeWords(string);
   //     case "kebab":
   //       return kebabWords(string);
   //     case "title":
-  //       return titleCase(newStringAsArray);
+  //       return titleCase(string);
   //     case "vowel":
   //       return capitalizeVowels(string);
   //     case "consonant":
   //       return capitalizeConsonants(string);
   //     case "upper":
-  //       return capitalizeConsonants(string);
+  //       return upperCase(string);
   //     case "lower":
   //       return lowerCase(string);
   //     default:
   //        console.log('not type matched');
   //   }
-
+  return console.log(newString);
 }
 
 
-// console.log(makeCase("this is a string", "camel"));
-// console.log(makeCase("this is a string", "pascal"));
-// console.log(makeCase("this is a string", "snake"));
-// console.log(makeCase("this is a string", "kebab"));
-// console.log(makeCase("this is a string", "title"));
-// console.log(makeCase("this is a string", "vowel"));
-// console.log(makeCase("this is a string", "consonant"));
+console.log(makeCase("this is a string", "camel"));
+console.log(makeCase("this is a string", "pascal"));
+console.log(makeCase("this is a string", "snake"));
+console.log(makeCase("this is a string", "kebab"));
+console.log(makeCase("this is a string", "title"));
+console.log(makeCase("this is a string", "vowel"));
+console.log(makeCase("this is a string", "consonant"));
 console.log(makeCase("this is a string", ["upper", "snake"]));
