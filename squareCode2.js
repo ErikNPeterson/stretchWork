@@ -1,4 +1,6 @@
 // why was this not working with a for loop but worked with a forEach loop
+// my output is correct but is slightly different than the example in the instructions.
+// this would be due to line 11 which dictates the length of the lines.
 
 function squareCode(originalPhrase){
   if(originalPhrase.length > 81){
@@ -48,4 +50,4 @@ function squareCode(originalPhrase){
   return console.log(finalCode);
 }
 
-squareCode("blahblahblahhjkfdhajklfdhajkfdsahjkfdsahjfkdsahfjkdsahjfkdsahjkfd");
+squareCode("Ifmanwasmeanttostayonthegroundgodwouldhavegivenusroots");
